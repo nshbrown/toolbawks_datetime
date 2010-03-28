@@ -1,0 +1,13 @@
+Here is a guide to upgrading from the various versions
+
+== FROM 3.0.1 <= 3.0.0
+
+- Adjust the <%= javascript_include_tag 'datetime_toolbocks', 'datetime_toolbocks_window', [...], :plugin => 'datetime_toolbocks' %> and remove the "datetime_toolbocks_window" include. Leave all others as they are.
+
+== FROM 3.0.0 <= 2.x
+
+- Upgrade the javascripts
+
+<%= javascript_include_tag 'prototype' %>
+
+- Update the javascript_include_tag.

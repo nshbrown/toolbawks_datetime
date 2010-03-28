@@ -1,0 +1,96 @@
+==== About Datetime Toolbocks
+
+The Datetime Toolbocks is a pure JavaScript library using DHTML and advanced date parsing to 
+generate the date based on the grammar passed. The purpose of the Datetime Toolbocks is to 
+simplify the date entering process using common terms we are all familiar with.
+
+== TRUNK
+- Now works with RJS calls
+- Now works with Modal Dialogs (tested with Control.Modal)
+
+== 3.0.3
+- Refactored the options so only the ones that are required are passed through to the constructor, and those that are not are ignored
+- Added the option to have a flat calendar
+- Patched dynarch calendar with the flat bug (found the diff on sourceforge)
+- Added the option to not show the calendar button if you don't want it
+- Fixed a bug with passing javascript values through to the helper
+
+== 3.0.2
+- Added & tested functionality for calendar_option[:range] to have an array with two positions. 
+  <%= toolbocks_date_select :model, :column, {}, { :range => [2007, 2020] } %>
+- Fixed bug with dd/mm/yyyy showing incorrect when :format => 'us' and entering in a value of 03/13/2007
+- Fixed a bug with date initialization to format properly based on the format [Seth Banks <stb(at)subimage.com>]
+- Fixed bugs for IE7, Safari
+- Removed datetime_toolbocks_window.js and moved the code into the datetime_toolbocks.js
+
+== 3.0.1
+- Fixed a crticial bug requiring the :help and :autoRollOver attribute to always be passed through.
+- Updated the README
+
+== 3.0.0
+- Fully Object Orientated
+- Changed the helper method name to "toolbocks_date_select" from "datebocks_field"
+- Added options on helper method for Base and Calendar
+- Added style for Help icon to show the pointer cursor
+- Now able to use symbols on the helpers, such as toolbocks_date_select(:model, :method)
+- Added ability to override input name for helper
+- Added auto-detect and install for engines plugin
+- Merged DHTML Calendar Engine helper methods (Needs more work)
+- Enhanced debugging and error messages for invalid dates
+- Now using a single object with parameters. No more ugly HTML elements.
+- Able to have multiple datetime toolbocks elements on the same page with custom attributes
+- Added option to disable the help icon & popup window
+- Added "2 years from now", "3 days ago", "eleven years from today" [Darrell Taylor <darrellt@gmail.com>]
+- Added overloading on the months. If you enter in a number higher than 12 for the month, it will assume you meant the day
+
+== 2.0.3 - SEPTEMBER 2, 2006
+- Added new date formats for config
+  - dd/mm/yyyy
+  - dd-mm-yyyy
+  - mm/dd/yyyy
+  - mm.dd.yyyy
+  - yyyy-mm-dd
+- Allow for override of date type config by setting "var configDateType = 'dd-mm-yyyy';" in a 
+  script tag above the datebocks_engine.js include
+- Added VERSION file so "rake engine:info" now produces the correct version
+- Fixed bug in help popup. Now says "Monday" as it should.
+
+== 2.0.2 - AUGUST 26, 2006
+- Fixed typo with documentation "Engines.start :datebocks"
+- Updated Usage showing how to utilize DateBocks for a date field
+- Added URL for demo to README
+- Added new step for demo instructions showing usage
+
+== 2.0.1 - AUGUST 21, 2006 
+- Tested in Windows XP Firefox 1.0
+- Tested in Windows XP Opera 9.1
+- Tested in Windows XP IE6
+- Tested on Mac OSX 10.4 FireFox 1.5
+- Tested on Mac OSX 10.4 Safari 2.0.3
+- Removed div causing layout bug with IE
+- Fixed 404 for menuarrow.gif
+- Fixed 404 for icon_arrow.gif on Demo
+
+== 2.0.0 - AUGUST 16, 2006 
+
+- Changed name from DateBox to DateBocks
+- Added dependency for Prototype
+- First major release after much feedback
+- Renamed main method to datebocks_field
+- Removed datebocks_flat
+- Added new features
+	- Close help popup window clicking on any part of the popup
+	- German format dd.mm.yyyy
+	- Be able to have more than one DateBocks on a page
+	- Added Next or Last Week, Month, and Year (ex. Next Month or Last Year)
+	- (monday|tuesday|wednesday|thursday|friday|saturday|sunday) - Defaults to next defined week day
+	- Added support for mm-dd-yyyy
+	- Added now for date
+	- Now able to use model, method to instantiate a datebox_field [Michael Modica <codeslush(at)yahoo.com>]
+	- Always display with 2 characters in length for month and day
+- Bug fixes
+	- 1st of Jan[uary]
+	- Errors now highlight elements properly
+	- Major bug with the enter key to update the date and not post the entire form
+	- Fixed bug for special days where it
+	- Fixed bug for using datebox_field in a partial [Reginald Braithwaite <reg(at)braythwayt.com>]

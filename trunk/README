@@ -1,0 +1,89 @@
+= Datetime Toolbocks
+
+Datetime Toolbocks is a very simple Ruby on Rails Engine which provides a helper method to 
+instantly deploy the Datetime Toolbocks into your application.
+
+The Datetime Toolbocks also includes JSCalendar as a subset of functionality. It is in the long 
+term goal to enable this plugin to be able to be used as a whole, or by accessing each part. 
+Whether that is the JSCalendar with a default text input box, advanced Datetime Toolbocks 
+input without JSCalendar, or with both combined which is currently the default.
+
+This software package is developed using the Engines plugin. To find out more about how to 
+use engines in general, go to http://svn.rails-engines.org for general documentation about 
+the Engines mechanism.
+
+To view a live demo of the Datetime Toolbocks, visit:
+
+http://datetime.toolbocks.com
+
+== Dependancies
+
+This plugin currently only works with the latest version of the Engines plugin located at:
+
+  http://svn.rails-engines.org/plugins/engines/
+
+== Installation
+
+1. Create your Rails application, set up your databases, and install the Engines plugin.
+
+	script/plugin install http://svn.rails-engines.org/plugins/engines/
+
+2. Install the Datetime Toolbocks
+	
+	script/plugin install http://svn.toolbocks.com/plugins/datetime_toolbocks/
+
+3. Add the following within the "Rails::Initializer.run do |config|" block in config/environment.rb
+
+    config.plugins = ["engines", "*"]
+
+4. The Datetime Toolbocks provides a core stylesheets and in addition to several javascript files, so you'll 
+   need to include these two lines within your application's layout. Add the following lines:
+
+  <%= stylesheet_link_tag 'datetime_toolbocks', 'calendar-blue', :plugin => 'datetime_toolbocks' %>
+  <%= javascript_include_tag 'prototype' %>
+  <%= javascript_include_tag 'datetime_toolbocks', 'calendar', 'lang/calendar-en', 'calendar-setup', :plugin => 'datetime_toolbocks' %>
+
+5. For good measure, you should update your JavaScripts to the latest version of Prototype and Scriptaculous.
+
+  rake rails:update:javascripts
+
+
+== Usage
+For any model (ex Event) that has a :date column, to utilize Datetime Toolbocks use toolbocks_date_select('event', 'start_date') as a helper within your view.
+
+  <%= toolbocks_date_select :model, :date_column, { :format => 'us', :autoRollOver => false} %>
+
+== Bugs
+
+Please report any bugs or feature enhancements to http://dev.toolbocks.com
+
+== License
+Copyright (c) 2006-2007 Nathaniel Brown
+
+GNU Lesser General Public License
+Version 2.1, February 1999
+
+  * Redistributions of source code must retain the above copyright notice, this
+    list of conditions and the following disclaimer.
+  * Redistributions in binary form must reproduce the above copyright notice,
+    this list of conditions and the following disclaimer in the documentation
+    and/or other materials provided with the distribution.
+  * Neither the name of Toolbocks nor the names of its contributors
+    may be used to endorse or promote products derived from this software
+    without specific prior written permission.
+
+This library is free software; you can redistribute it and/or
+modify it under the terms of the GNU Lesser General Public
+License as published by the Free Software Foundation; either
+version 2.1 of the License, or (at your option) any later version.
+
+This library is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+Lesser General Public License for more details.
+
+You should have received a copy of the GNU Lesser General Public
+License along with this library; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307 USA
+
+

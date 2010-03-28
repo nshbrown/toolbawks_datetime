@@ -1,0 +1,197 @@
+<div id="content" class="content">
+  <div class="conatiner_outside">
+    <div class="conatiner_inside">
+    <h1><a href="/">Datetime Toolbocks</a></h1>
+    
+    <h2 class="intuitive_date_input_selection">Intuitive Date Input Selection</h2>
+    <p class="about">The <strong>Datetime Toolbocks</strong> is a pure JavaScript library using DHTML and advanced date parsing to generate the date based on the grammar passed. The purpose of the <strong>Datetime Toolbocks</strong> is to simplify the date entering process using common terms we are all familiar with.</p>
+    
+    <div id="demo">
+      <%= form_tag %>
+        <%= toolbocks_date_select(:example, :start, { :format => 'us', :help => true, :autoRollOver => false} ) %>
+        <br /><br />
+        <%= toolbocks_date_select :table_rate, :start_date, { :format => 'us', :autoRollOver => false} %>
+
+
+<%
+# <span id="vis_data"></span>
+%>
+<% 
+=begin
+ popup_calendar 'person', 'birthday',
+      { :class => 'date',
+ 				:form_name => 'inserisci_commento',
+        :field_title => 'Birthday',
+        :button_image => image_path('calendar.gif', :plugin => 'datetime_toolbocks'),
+        :button_title => 'Show calendar' },
+      { :firstDay => 1,
+ 				:displayArea => 'vis_data',
+ 				:showsTime => false,
+ 				:daFormat => '%d/%m/%Y',
+        :range => [1920, 1990],
+        :step => 1,
+        :showOthers => true,
+        :cache => true }
+=end
+ %>
+       </form>
+    </div>
+    
+    <ul class="examples">
+    	<li>Today</li>
+    	<li>tod</li>
+    	<li>tomorrow</li>
+    	<li>tom</li>
+    	<li>yesterday</li>
+    	<li>6</li>
+    	<li>6th</li>
+    	<li>6th October</li>
+    	<li>3rd of Feb</li>
+    	<li>10th Feb 2004</li>
+    	<li>14th of Februrary</li>
+    	<li>12 feb</li>
+    	<li>1 ja</li>
+    	<li>mon</li>
+    	<li>Friday</li>
+    	<li>next Friday</li>
+    	<li>next fri</li>
+    	<li>next m</li>
+    	<li>last Monday</li>
+    	<li>last mon</li>
+    	<li>last m</li>
+    	<li>2004-8-8 (ISO)</li>
+    	<li>2004-04-04</li>
+    	<li>1/24/2005 (US)</li>
+    	<li>4/26</li>
+    	<li>10-24-2005</li>
+    	<li>Next Week</li>
+    	<li>Last Year</li>
+    	<li>Next Month</li>
+    	<li>18.11.2004</li>
+    	<li>2 years ago</li>
+    	<li>ten days from now</li>
+    	<li>11 years from today</li>
+    </ul>
+    
+    <br style="clear:both;" />
+    
+    <div class="delicious-blogbadge-line" id="delicious-badge">
+      <%= javascript_tag "Delicious.BlogBadge.register('delicious-badge',  'http://datetime.toolbocks.com/', 'Datetime Toolbocks: Intuitive Date Input Selection');" %>
+    </div>
+    
+    <h2>Installation</h2>
+    <p>Ruby on Rails is the development framework of choice. Future implementations in such core JavaScript libraries as the Dojo Toolkit, YUI, GWT, and others are likely to follow.</p>
+    <p>In addition, I am also considering implementing it for Wordpress, Drupal, and other such frameworks. If you have already done so, or are interested in contributing such a plugin....<br />Please <a href="http://nshb.net/contact.html">contact me!</a></p>
+
+    <p class="strong">To install the <strong>Datetime Toolbocks</strong> within Ruby on Rails, follow these simple steps.</p>
+    <div id="steps">
+      <ol class="steps">
+        <li>Install the datetime_toolbocks plugin. This will install the engines plugin as well if you don't already have it installed.
+<pre>
+  script/plugin install http://svn.toolbocks.com/plugins/datetime_toolbocks
+</pre>
+        </li>
+        <li>
+            Add the following within the "Rails::Initializer.run do |config|" block in config/environment.rb
+<pre>
+  config.plugins = ["engines", "*"]
+</pre>
+        </li>
+        <li>Add the following to &lt;head&gt; tag within the /views/layouts/application.rhtml
+<pre>
+  &lt;%= javascript_include_tag 'prototype' %&gt;
+  &lt;%= javascript_include_tag 'datetime_toolbocks', 'datetime_toolbocks_window', 'calendar', 'lang/calendar-en', 'calendar-setup', :plugin => 'datetime_toolbocks' %&gt;
+  &lt;%= stylesheet_link_tag 'datetime_toolbocks', 'calendar-win2k-cold-1.css', :plugin => 'datetime_toolbocks' %&gt;
+</pre>
+        </li>
+        <li>Restart your webserver of choice </li>
+        <li>
+            Use the following helper within any view as a replacement for the <strong>date_select</strong>
+<pre>
+  &lt;%= toolbocks_date_select :model_name, :date_column, { :format => 'us', :autoRollOver => false } %&gt;
+</pre>
+        
+        </li>
+      </ol>
+    </div>
+    
+    <h2>Repository</h2>
+    <p>Public subversion access available at <a href="http://svn.toolbocks.com/datetime_toolbocks/">http://svn.toolbocks.com/datetime_toolbocks/</a>.</p>
+    
+    <h2>Bugs & Feature Requests</h2>
+    <p>If you find a bug or have a great idea for <strong>Datetime Toolbocks</strong> please do <%= link_to 'create a ticket', 'http://dev.toolbocks.com' %> so it can be enhanced for everyone else!</p>
+    
+    <h2>Support</h2>
+    <p>If you are having trouble installing the <strong>Datetime Toolbocks</strong>, please sign up for our <%= link_to 'mailing list', 'http://lists.toolbocks.com/mailman/listinfo/toolbocks-user' %>, and hopefully someone in ToolBocks user community may be able to assist you with their experience.</p>
+    <p>For commercial support, contact <%= link_to 'Nathaniel Brown', 'http://nshb.net/contact.html' %> for anything concerned with <strong>Datetime Toolbocks</strong> as well as providing any additional Ruby on Rails or AJAX development for your application.</p>
+    
+    <h2>Donate</h2>
+    <p>If you like any of the <%= link_to 'Toolbocks', 'http://toolbocks.com' %> libraries enough to use them, please do consider supporting the ongoing development by donating some of your conserved energy to the cause.</p>
+    <p><form action="https://www.paypal.com/cgi-bin/webscr" method="post"><input type="hidden" name="cmd" value="_s-xclick" /><input type="image" src="https://www.paypal.com/en_US/i/btn/x-click-but04.gif" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!" /><img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1" /><input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----" /></form></p>
+    
+    <h3>README and CHANGELOG</h3>
+    <p>You can find the <%= link_to 'README', 'http://svn.toolbocks.com/plugins/datetime_toolbocks/README' %> available within the Subversion repository. As well, you can find the <%= link_to 'CHANGELOG', 'http://svn.toolbocks.com/plugins/datetime_toolbocks/CHANGELOG' %> containing all the new features within the repository.
+    
+    <h3>License</h3>
+    <p>The <strong>Datetime Toolbocks</strong> is released under a slightly modified <a href="http://www.gnu.org/licenses/lgpl.html">GNU Lesser General Public License</a> (version 2.1).</p>
+<pre>
+Copyright (c) 2006-2007 Nathaniel Brown
+
+GNU Lesser General Public License
+Version 2.1, February 1999
+
+  * Redistributions of source code must retain the above copyright notice, this
+    list of conditions and the following disclaimer.
+  * Redistributions in binary form must reproduce the above copyright notice,
+    this list of conditions and the following disclaimer in the documentation
+    and/or other materials provided with the distribution.
+  * Neither the name of Toolbocks, Inimit Innovations Inc., nor the names of 
+    its contributors may be used to endorse or promote products derived from 
+    this software without specific prior written permission.
+
+This library is free software; you can redistribute it and/or
+modify it under the terms of the GNU Lesser General Public
+License as published by the Free Software Foundation; either
+version 2.1 of the License, or (at your option) any later version.
+
+This library is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+Lesser General Public License for more details.
+
+You should have received a copy of the GNU Lesser General Public
+License along with this library; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307 USA
+</pre>
+
+    <h3>Feature Goals</h3>
+    <ul>
+    	<li>New match: "first monday in november" </li>
+    	<li>New match: "2nd wed in dec" </li>
+    	<li>Initial date validation with server side code (Ruby/PHP/etc) to ensure that the base date used via their time zone is correct.</li>
+    	<li>If a date is not matched, then use an AJAX extension/plugin (Ruby/PHP/etc) to try and make sense of it 
+    	   <ul>
+            <li>Utilize <a href="http://runt.rubyforge.org/">RUNT</a> as the third party tool for Ruby</li>
+    	   </ul>
+      </li>
+    	<li>Second or even inline box to enter the Time with same text based functionality
+    		<ul>
+    			<li>Match: [all date matches] at 7pm</li>
+    			<li>Match: [all date matches] @ 7pm</li>
+    			<li>Match: 4am</li>
+    			<li>Match: 18:00</li>
+    			<li>Match: (1|one) hour[s]?</li>
+    			<li>Match: (5|five) min(ute[s]?)?</li>
+    			<li>Match: morning (return 9am - configurable time)</li>
+    			<li>Match: evening (return 5pm - configurable time)</li>
+    			<li>Match: now</li>
+    		</ul>
+    	</li>
+    	<li>Have a suggestion? Please do <a href="http://nshb.net/contact.html">email me</a></li>
+    </ul>
+    
+    <div id="footer">
+      <p>AJAX & Ruby on Rails Development by <%= link_to 'Nathaniel Brown', 'http://nshb.net' %> sponsored by <%= link_to 'Inimit Innovations Inc.', 'http://inimit.com' %></p>
+    </div>
+  </div>
+</div>

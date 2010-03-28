@@ -1,0 +1,46 @@
+<p>
+  <%= toolbocks_date_select :model_name, :date_column1 %>
+  <%= toolbocks_date_select :model_name, :date_column2, { :format => 'us' } %>
+  <%= toolbocks_date_select :model_name, :date_column3, { :format => 'dd/mm/yyyy', :autoRollOver => false, :value => '11/10/1982' } %>
+  <%= toolbocks_date_select :model_name, :date_column4, { :name => 'custom[field_name]', :help => false } %>
+  <%= toolbocks_date_select :model_name, :date_column5, { :format => 'iso' }, { :align => 'Tl' } %>
+  <%= toolbocks_date_select :model_name, :date_column6, { :format => 'iso' }, { :align => 'Bl', :firstDay => 1, :range => [1995, 2008] } %>
+
+  <!-- Use this one if you want to have your calendar in some strange place //-->
+  <div id="calendar-container" style="float:right"></div>
+  <%= toolbocks_date_select(:model_name, :date_column7, { :showHelp => false, :buildFlat => false }, { :flat => 'calendar-container' }) %>
+  
+  <!-- Create the flat calendar, use an automatic element id for the flat calendar //-->
+  <%= toolbocks_date_select(:model_name, :date_column8, { :showHelp => false }, { :flat => true }) %>
+  
+  <!-- Create the flat calendar, use a specific element id for the flat calendar //-->
+  <%= toolbocks_date_select(:model_name, :date_column9, { :showHelp => true }, { :flat => 'my_custom_id_for_flat_calendar' }) %>
+  
+  <!-- Don't show the help, or the calendar button. Only show the input field with the magic date parsing //-->
+  <%= toolbocks_date_select(:model_name, :date_column10, { :showButton => false, :showHelp => false }) %>
+  
+  <!-- Use a callback for the flat calendar//-->
+  <script type="text/javascript">
+  function dateChanged(calendar) {
+    // Beware that this function is called even if the end-user only
+    // changed the month/year.  In order to determine if a date was
+    // clicked you can use the dateClicked property of the calendar:
+    if (calendar.dateClicked) {
+      // OK, a date was clicked, redirect to /yyyy/mm/dd/index.php
+      var y = calendar.date.getFullYear();
+      var m = calendar.date.getMonth();     // integer, 0..11
+      var d = calendar.date.getDate();      // integer, 1..31
+      
+      var url = "/search/" + y + "/" + m + "/" + d;
+      
+      // redirect...
+      // window.location = url;
+      
+      // announce a possible URL to go to
+      alert('Flat calendar with callback: ' + url);
+    }
+  };
+  </script>
+  <%= toolbocks_date_select(:model_name, :date_column11, {}, { :flat => true, :flatCallback => 'javascript:dateChanged' }) %>
+  
+</p>
